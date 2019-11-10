@@ -10,8 +10,8 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
-    if @ticket.save
-      redirect_to tickets_path, notice: "新增任務成功！"
+    if @task.save
+      redirect_to tasks_path, notice: "新增任務成功！"
     else
       render :new
     end
@@ -30,14 +30,18 @@ class TasksController < ApplicationController
     end
   end
 
+  def show
+    
+  end
+
   def destroy
-    @task = Ticket.find_by(id: params[:id])
+    @task = Task.find_by(id: params[:id])
     @task.destroy if @task
-    redirect_to task_path, notice: "任務已刪除"
+    redirect_to tasks_path, notice: "任務已刪除"
   end
 
   private
   def task_params
-    params.require(:tasks).permit(:title, :sequence, :status, :start_time, :end_time, :ticket_description)
+    params.require(:task).permit(:title, :sequence, :status, :start_time, :end_time, :description)
   end
 end
