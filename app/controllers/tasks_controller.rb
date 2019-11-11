@@ -1,7 +1,11 @@
 class TasksController < ApplicationController
-  before_action :find_task, only: [:edit, :update, :destroy]
+  before_action :find_task, only: [:show, :edit, :update, :destroy]
   def index
     @tasks = Task.all
+  end
+
+  def show
+    
   end
 
   def new
@@ -17,8 +21,7 @@ class TasksController < ApplicationController
     end
   end
 
-  def edit
-    
+  def edit  
   end
 
   def update
@@ -28,7 +31,6 @@ class TasksController < ApplicationController
       render :edit
     end
   end
-
 
   def destroy
     @task.destroy if @task

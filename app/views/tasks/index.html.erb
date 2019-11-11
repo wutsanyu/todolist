@@ -6,25 +6,25 @@
   <thead>
     <tr>
       <td>任務名稱</td>
-      <td>標籤名稱</td>
+      <td>任務標籤</td>
       <td>執行次序</td>
       <td>任務狀態</td>
       <td>任務開始時間</td>
       <td>任務結束時間</td>
-      <td>任務內容描述</td>
        
     </tr>
   </thead>
   <tbody>
     <% @tasks.each do |task| %>
     <tr>
-      <td><%= task.title  %></td>
+      <td>
+      <%= link_to task.title, task_path(task) %>
+      </td>
       <td><%= task.tag_list  %></td>
       <td><%= task.sequence%></td>
       <td><%= task.status %></td>
       <td><%= task.start_time %></td>
       <td><%= task.end_time %></td>
-      <td><%= task.description %></td>
       <td>
         <%= link_to '編輯任務', edit_task_path(task), class: 'btn btn-success btn-sm' %>
         <%= link_to '刪除任務', task_path(task), class: 'btn btn-secondary btn-sm', method: 'delete', data: { confirm: '確認刪除？' }%>

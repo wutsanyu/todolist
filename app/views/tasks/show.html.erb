@@ -1,0 +1,13 @@
+<% if @task  %>
+  <h1><%= @task.title %></h1>
+
+  <ul class='list-group'>
+    <li class='list-group-item'>任務標籤：<%= @task.tag_list %></li>
+    <li class='list-group-item'>開始時間：<%= @task.start_time %></li>
+    <li class='list-group-item'>結束時間：<%= @task.end_time %></li>
+    <li class='list-group-item'>任務狀態：<%= @task.status %></li>
+    <li class='list-group-item'>任務內容：<%= @task.description %></li>
+  </ul>
+<% else %>
+  <h1>任務尚未建立。</h1>
+<% end %>
