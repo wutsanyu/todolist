@@ -5,7 +5,7 @@ class TasksController < ApplicationController
   end
 
   def show
-    
+    redirect_to tasks_path, notice: "任務尙未建立" if @task == nil 
   end
 
   def new
